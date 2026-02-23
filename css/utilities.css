@@ -1,0 +1,143 @@
+/* ============================================================
+   UTILITIES LAYER — Helpers, Keyframes
+   Dra. Bania Abrego | Odontología Integral
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Text utilities
+   ---------------------------------------------------------- */
+.text-center  { text-align: center; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
+
+.text-primary { color: var(--color-primary); }
+.text-muted   { color: var(--color-gray-500); }
+.text-white   { color: var(--color-white); }
+
+.font-bold     { font-weight: var(--font-bold); }
+.font-semibold { font-weight: var(--font-semibold); }
+.font-medium   { font-weight: var(--font-medium); }
+
+/* ----------------------------------------------------------
+   Display utilities
+   ---------------------------------------------------------- */
+.flex          { display: flex; }
+.flex-col      { flex-direction: column; }
+.items-center  { align-items: center; }
+.justify-center{ justify-content: center; }
+.gap-4         { gap: var(--space-4); }
+.gap-6         { gap: var(--space-6); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ----------------------------------------------------------
+   Spacing utilities
+   ---------------------------------------------------------- */
+.mt-4  { margin-top: var(--space-4); }
+.mt-6  { margin-top: var(--space-6); }
+.mt-8  { margin-top: var(--space-8); }
+.mb-4  { margin-bottom: var(--space-4); }
+.mb-6  { margin-bottom: var(--space-6); }
+
+/* ----------------------------------------------------------
+   Decorative divider
+   ---------------------------------------------------------- */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border-radius: var(--radius-full);
+  margin: var(--space-4) auto;
+}
+
+.divider--left { margin-left: 0; }
+
+/* ----------------------------------------------------------
+   Highlight text gradient
+   ---------------------------------------------------------- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ----------------------------------------------------------
+   Keyframe animations
+   ---------------------------------------------------------- */
+
+/* Float suave */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Float alternativo */
+@keyframes float-alt {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(10px) rotate(3deg); }
+}
+
+/* Slidedown para menú móvil */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Twinkle para sparkles */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50%       { opacity: 0.5; transform: scale(0.7) rotate(20deg); }
+}
+
+/* Pulse dot (badge en hero) */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* Pulse WhatsApp */
+@keyframes pulse-whatsapp {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45); }
+  50%       { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.65), 0 0 0 8px rgba(37, 211, 102, 0.1); }
+}
+
+/* Dispositivos táctiles: sin hover transforms que desplacen layout */
+@media (hover: none) {
+  .service-card:hover,
+  .testimonial-card:hover,
+  .btn--primary:hover,
+  .btn--outline:hover,
+  .btn--whatsapp:hover {
+    transform: none;
+  }
+
+  .contact-item:hover {
+    transform: none;
+  }
+
+  .service-card:hover .service-card__icon {
+    transform: none;
+  }
+}
+
+/* Reduced motion: desactivar animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html { scroll-behavior: auto; }
+}
